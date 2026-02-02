@@ -21,51 +21,25 @@
 - PostgreSQL
 - Hibernate / JPA
 - Lombok
-- Maven**
-- **Docker**
+- Maven
+- Docker
 
-## 🚀 Запуск проекта
+ 🚀 Запуск проекта
 
-### Вариант 1 — с Docker (рекомендуется)
-
+ Вариант 1 — с Docker (рекомендуется)
 1. Клонируй репозиторий
-   ```bash
    git clone https://github.com/Danisus/task-telegram-bot.git
    cd task-telegram-bot
-
-Важно: Убери хардкод токена из кода (TaskBot.java) и используй переменные окружения.
-В docker-compose.yml уже есть пример:YAMLservices:
-  bot:
-    build: .
-    environment:
-      - BOT_TOKEN=твой_токен_здесь
-      - BOT_USERNAME=TaskBot
-      - SPRING_DATASOURCE_URL=jdbc:postgresql://db:5432/taskbot
-      - SPRING_DATASOURCE_USERNAME=postgres
-      - SPRING_DATASOURCE_PASSWORD=root
-    depends_on:
-      - db
-
-  db:
-    image: postgres:15
-    environment:
-      - POSTGRES_DB=taskbot
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=root
-    ports:
-      - "5432:5432"
-ЗапустиBashdocker-compose up -d
-
+Запусти docker-compose up -d
 Бот запустится и будет готов к работе.
-Вариант 2 — локально
 
+Вариант 2 — локально
 Настрой PostgreSQL (база taskbot, user postgres, pass root)
 В application.properties / yml укажи подключение к БД и токен бота (лучше через env)
 Собери и запустиBashmvn clean package
 java -jar target/TaskBot-0.0.1-SNAPSHOT.jar
 
 🤖 Как пользоваться
-
 Найди бота в Telegram по username: @TaskBot (или запусти локально и напиши ему)
 Напиши /start — получишь список команд
 Примеры:
@@ -86,8 +60,8 @@ textsrc/main/java/org/example/taskbot/
 ├── services/     # TaskService — бизнес-логика
 ├── BotInitializer.java # регистрация бота
 └── TaskBotApplication.java
-🔮 Что дальше планирую улучшить
 
+🔮 Что дальше планирую улучшить
 Кнопки (InlineKeyboard) вместо текстовых команд
 Редактирование задач
 Напоминания по времени (scheduler)
@@ -95,9 +69,5 @@ textsrc/main/java/org/example/taskbot/
 Тесты (unit + integration)
 Полноценный docker-compose с БД
 Поддержка нескольких языков
-
-📞 Контакты
-Данис
-GitHub: https://github.com/Danisus
 
 ⭐ Если бот понравился — поставь звезду репозиторию!
